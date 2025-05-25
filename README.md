@@ -95,11 +95,6 @@ Sebaliknya, model **Linear Regression** memiliki akurasi rendah (R² hanya 0.31)
 - Gunakan **Decision Tree Regressor** sebagai model utama untuk prediksi suhu.
 - Pertimbangkan untuk menggunakan model lain seperti **Random Forest** atau **Gradient Boosting** untuk hasil yang lebih baik.
 
-
----
-
-Berikut adalah revisi lengkap bagian ***Evaluation*** dan ***Kesimpulan & Saran*** pada `README.md`, disesuaikan dengan hasil evaluasi terbaru dari model *Linear Regression* dan *Decision Tree Regressor*:
-
 ---
 
 ## ✅ **Kesimpulan & Saran**
