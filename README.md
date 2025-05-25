@@ -66,22 +66,55 @@ Periode: **2013–2017**
 
 ## 📈 Evaluation
 
-| Metrik | Nilai     |
-|--------|-----------|
-| RMSE   | 3.46 °C   |
-| R²     | 0.77      |
+Model dievaluasi menggunakan tiga metrik utama:
 
-- **RMSE** menunjukkan rata-rata galat prediksi sebesar **3.46 °C**
-- **R² Score** 0.77 artinya **77% variabilitas suhu harian** dapat dijelaskan oleh model
+- **MAE (Mean Absolute Error)**: Mengukur rata-rata galat absolut antara nilai aktual dan prediksi.
+- **RMSE (Root Mean Squared Error)**: Menghitung akar dari rata-rata kuadrat galat, memberikan penalti lebih besar untuk kesalahan besar.
+- **R² Score (Coefficient of Determination)**: Mengukur seberapa baik model menjelaskan variabilitas data target.
+
+### Hasil Evaluasi:
+
+**Linear Regression**
+- MAE  : 5.20 °C
+- RMSE : 6.10 °C
+- R²   : 0.31
+
+**Decision Tree Regressor**
+- MAE  : 2.73 °C
+- RMSE : 3.70 °C
+- R²   : 0.75
+
+### Interpretasi:
+
+Model **Decision Tree Regressor** menunjukkan performa yang jauh lebih baik dibandingkan **Linear Regression**, dengan nilai MAE dan RMSE yang lebih rendah serta R² yang jauh lebih tinggi. Artinya, model pohon keputusan lebih mampu menangkap pola non-linier dalam data dan lebih cocok untuk memodelkan suhu rata-rata harian berdasarkan fitur cuaca lainnya.
+
+Sebaliknya, model **Linear Regression** memiliki akurasi rendah (R² hanya 0.31), mengindikasikan bahwa model linier tidak cukup untuk menjelaskan variasi suhu rata-rata harian dengan baik.
+
+### Rekomendasi:
+
+- Gunakan **Decision Tree Regressor** sebagai model utama untuk prediksi suhu.
+- Pertimbangkan untuk menggunakan model lain seperti **Random Forest** atau **Gradient Boosting** untuk hasil yang lebih baik.
+
 
 ---
 
-## 🧾 Kesimpulan & Saran
+Berikut adalah revisi lengkap bagian ***Evaluation*** dan ***Kesimpulan & Saran*** pada `README.md`, disesuaikan dengan hasil evaluasi terbaru dari model *Linear Regression* dan *Decision Tree Regressor*:
 
-- Model Linear Regression cukup baik sebagai **baseline** dengan **R² = 0.77**
-- **Saran**:
-  - Implementasikan Random Forest dengan hyperparameter tuning dan cross-validation untuk meningkatkan akurasi.
-  - Tambahkan fitur baru seperti *urban heat index* atau variabel cuaca tambahan untuk memperkaya model.
+---
+
+## ✅ **Kesimpulan & Saran**
+
+### Kesimpulan:
+
+* Model **Linear Regression** kurang efektif untuk memodelkan data suhu harian di Delhi, terbukti dari R² yang hanya 0.31.
+* Model **Decision Tree Regressor** menunjukkan performa jauh lebih baik, dengan R² sebesar 0.75 dan MAE yang cukup rendah.
+* Data cuaca memiliki hubungan non-linear yang lebih baik ditangani oleh model berbasis pohon keputusan.
+
+### Saran:
+
+* Gunakan **Decision Tree Regressor** atau model non-linear lainnya (misalnya **Random Forest**, **Gradient Boosting**) untuk implementasi sistem prediksi suhu harian.
+* Lakukan **hyperparameter tuning** dan **cross-validation** untuk meningkatkan generalisasi model.
+* Pertimbangkan penambahan fitur baru seperti indeks urban heat, kategori musim, atau variabel waktu (bulan/hari) untuk meningkatkan akurasi model.
 
 ---
 
@@ -90,6 +123,5 @@ Periode: **2013–2017**
 submission/
 │
 ├── notebook.ipynb # Notebook utama dengan seluruh tahapan
-├── script.py # Versi script Python
 ├── report.md # Laporan Markdown
 └── README.md # File ini
