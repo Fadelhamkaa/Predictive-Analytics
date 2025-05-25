@@ -118,5 +118,5 @@ Sebaliknya, model **Linear Regression** memiliki akurasi rendah (R² hanya 0.31)
 submission/
 │
 ├── Predictive_Analytics_Muhammad_Fadel_Hamka.ipynb # Notebook utama dengan seluruh tahapan
-├── script.py # Versi script Python
+├── predictive_analytics_muhammad_fadel_hamka.py # Versi script Python
 └── README.md # File ini
