@@ -6,7 +6,6 @@ Suhu harian memengaruhi kesehatan masyarakat, perencanaan energi, dan aktivitas 
 
 ### 📚 Referensi:
 - A. Sharma et al., "Climatic Factors and Health Impacts in Delhi Region," *International Journal of Environmental Research*, vol. 12, no. 4, pp. 345–356, 2018.
-- Kaggle, "Daily Delhi Climate Train Dataset," 2019. [Online]. Available: https://www.kaggle.com/sudalairajkumar/daily-climate-time-series-data
 
 ---
 
@@ -29,7 +28,10 @@ Suhu harian memengaruhi kesehatan masyarakat, perencanaan energi, dan aktivitas 
 
 ## 📊 Data Understanding
 
-Dataset: **Daily Delhi Climate Train** Jumlah data: **1.462 baris** Periode: **1 Januari 2013 – 1 Januari 2017** (Berdasarkan output `df.head()` dan tren plot suhu)
+Dataset: **Daily Delhi Climate Train**
+Sumber Data: Kaggle, "Daily Delhi Climate Train Dataset," 2019. [Online]. Available: https://www.kaggle.com/sudalairajkumar/daily-climate-time-series-data
+Jumlah data: **1.462 baris** dan **5 kolom**.
+Periode: **1 Januari 2013 – 1 Januari 2017** (Berdasarkan output `df.head()` dan tren plot suhu).
 
 | Fitur         | Tipe     | Deskripsi                            |
 |---------------|----------|--------------------------------------|
@@ -54,9 +56,9 @@ Dataset: **Daily Delhi Climate Train** Jumlah data: **1.462 baris** Periode: **1
 
 - **Konversi Tipe Data**: Mengubah kolom `date` dari tipe `object` menjadi `datetime` menggunakan `pd.to_datetime(df['date'])`. Ini penting untuk analisis berbasis waktu, meskipun pada pemodelan ini fitur `date` tidak secara langsung digunakan sebagai prediktor.
 - **Pengecekan Missing Values**: Dilakukan pengecekan menggunakan `df.isnull().sum()`, tidak ditemukan missing values.
-- **Identifikasi Outlier**: Pada tahap EDA, teridentifikasi potensi outlier pada `meanpressure`. Namun, tidak dilakukan penghapusan atau penanganan outlier secara spesifik pada tahap persiapan data sebelum pemodelan di notebook ini.
-- **Pembagian Data**: Dataset dibagi menjadi data latih (train) dan data uji (test) dengan rasio **80:20** menggunakan `train_test_split` dari `sklearn.model_selection`. Parameter `random_state=42` digunakan untuk memastikan hasil pembagian data yang konsisten dan dapat direproduksi.
+- **Identifikasi Outlier**: Pada tahap EDA (Data Understanding), teridentifikasi potensi outlier pada `meanpressure`. Namun, tidak dilakukan penghapusan atau penanganan outlier secara spesifik pada tahap persiapan data sebelum pemodelan di notebook ini.
 - **Pemilihan Fitur**: Fitur yang digunakan untuk prediksi (`X`) adalah `humidity`, `wind_speed`, dan `meanpressure`. Target variabel (`y`) adalah `meantemp`.
+- **Pembagian Data**: Dataset dengan fitur dan target yang sudah dipilih kemudian dibagi menjadi data latih (train) dan data uji (test) dengan rasio **80:20** menggunakan `train_test_split` dari `sklearn.model_selection`. Parameter `random_state=42` digunakan untuk memastikan hasil pembagian data yang konsisten dan dapat direproduksi.
 - **Scaling Fitur**: Tidak dilakukan penerapan teknik scaling fitur seperti `StandardScaler` pada notebook ini sebelum melatih model.
 
 ---
@@ -90,6 +92,7 @@ Metrik evaluasi yang digunakan adalah Mean Absolute Error (MAE), Root Mean Squar
 | RMSE          | 6.10 °C           | 3.70 °C                 |
 | R²            | 0.31              | 0.75                    |
 
+
 - **Interpretasi**:
   - **Linear Regression**:
     - MAE sebesar 5.20 °C dan RMSE sebesar 6.10 °C menunjukkan rata-rata kesalahan prediksi dari model ini.
@@ -116,10 +119,3 @@ Berdasarkan metrik evaluasi, **Decision Tree Regressor** menunjukkan performa ya
 ---
 
 ## 📁 Struktur Berkas Submission
-
-submission/
-│
-├── notebook.ipynb # Notebook utama dengan seluruh tahapan
-├── script.py # Versi script Python
-├── report.md # Laporan Markdown
-└── README.md # File ini
