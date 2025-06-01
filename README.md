@@ -119,3 +119,9 @@ Berdasarkan metrik evaluasi, **Decision Tree Regressor** menunjukkan performa ya
 ---
 
 ## 📁 Struktur Berkas Submission
+submission/
+│
+├── notebook.ipynb # Notebook utama dengan seluruh tahapan (misal: Predictive_Analytics_Muhammad_Fadel_Hamka.ipynb)
+├── script.py # Versi script Python (jika ada)
+├── report.md # Laporan Markdown (misal: nama_anda_report.md)
+└── README.md # File ini
